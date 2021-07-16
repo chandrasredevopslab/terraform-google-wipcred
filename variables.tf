@@ -24,19 +24,19 @@ variable "is_service_account_exists" {
 variable "service_account_name" {
   type        = string
   description = "The GCP service account name, if service account is already exists then pass existing service account name else pass new name."
-  default     = "sa-for-uptycs"
+  default     = "sa-for-testing"
 }
 
 variable "gcp_workload_identity" {
   type        = string
   description = "Workload Identity Pool to allow Uptycs integration via AWS federation."
-  default     = "wip-uptycs"
+  default     = "wip-testing"
 }
 
 variable "gcp_wip_provider_id" {
   type        = string
   description = "Workload Identity Pool provider ID allow to add cloud provider."
-  default     = "aws-id-provider-uptycs"
+  default     = "aws-id-provider-testing"
 }
 
 variable "host_aws_account_id" {

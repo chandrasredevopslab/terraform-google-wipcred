@@ -30,20 +30,20 @@ Login with ADC
   * Create a <filename>.tf file, paste below codes and modify as needed.
 ```
 module "create-gcp-cred" {
-  source                    = "github.com/Uptycs/terraform-google-iam-config"
+  source                    = "github.com/chandrasredevopslab/terraform-google-wipcred"
   gcp_region                = "us-east1"
   gcp_project_id            = "test-project"
   gcp_project_number        = "1234567899"
   is_service_account_exists = false
-  service_account_name      = "sa-for-cldquery"
+  service_account_name      = "sa-for-testing"
 
   # AWS account details
   host_aws_account_id     = "< AWS account id >"
   host_aws_instance_role  = "< AWS role >"
 
   # Modify if required
-  gcp_workload_identity = "wip-uptycs"
-  gcp_wip_provider_id   = "aws-id-provider-uptycs"
+  gcp_workload_identity = "wip-test123"
+  gcp_wip_provider_id   = "aws-id-provider-test"
 }
 
 output "service-account-email" {
@@ -63,7 +63,7 @@ output "command-to-generate-gcp-cred-config" {
 | gcp_project_id            | The GCP project id where you wants create resources.                                                               | `string`      | `""`             |
 | gcp_project_number        | The GCP project number of above passed project id.                                                                 | `number`      | `""`             |
 | is_service_account_exists | This is set true or false i.e. whether you wants to use existing/new service account .                             | `bool`        | `false`          |
-| service_account_name      | The GCP service account name , if service account is already exists then pass existing service account name else pass new name| `string` | `"sa-for-uptycs"` |
+| service_account_name      | The GCP service account name , if service account is already exists then pass existing service account name else pass new name| `string` | `"sa-for-testing"` |
 | host_aws_account_id       | The deployer host aws account id.                                                                                  | `number`      | `""`             |
 | host_aws_instance_role    | The attached deployer host aws role name.                                                                          | `string`      | `""`             |
 | gcp_workload_identity     | Workload Identity Pool to allow Uptycs integration via AWS federation                                              | `string`      | `""`             |
